@@ -7,3 +7,5 @@ I am following Stephen Grider's [Udemy course](https://www.udemy.com/course/go-t
 ## Content
 
 The course consists of the following projects and concepts:
+
+- Basic Hello World program
