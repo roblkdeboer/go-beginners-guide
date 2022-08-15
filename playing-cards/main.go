@@ -9,8 +9,12 @@ func main() {
 
 	// Let Go compiler determine type for the variable
 	// Only used when defining a new variable
-	card := "Ace of Spades"
-	card = "Five of Diamonds"
+	card := newCard()
 
 	fmt.Println(card)
+}
+
+// Expect the function to return string
+func newCard() string {
+	return "Five of Diamonds"
 }
