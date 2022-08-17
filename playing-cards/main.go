@@ -1,17 +1,13 @@
 package main
 
-import "fmt"
-
 func main() {
-
-	// Explicitly type the variable
-	// var card string = "Ace of Spades"
-
 	// Let Go compiler determine type for the variable
 	// Only used when defining a new variable
-	card := newCard()
+	// Creating a slice - expanding list with specific types
+	cards := deck{"Ace of Diamonds", newCard()}
+	cards = append(cards, "Six of Spades")
 
-	fmt.Println(card)
+	cards.print()
 }
 
 // Expect the function to return string
