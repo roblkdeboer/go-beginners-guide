@@ -22,9 +22,15 @@ func newDeck() deck {
 	return cards
 }
 
-// d deck = receiver to receive a type deck
+// d deck = receiver to only work on a type deck, like a method
 func (d deck) print() {
 	for i, card := range d {
 		fmt.Println(i, card)
 	}
+}
+
+// Input = type deck and handsize
+// Return 2 decks
+func deal(d deck, handSize int) (deck, deck) {
+	return d[:handSize], d[handSize:]
 }

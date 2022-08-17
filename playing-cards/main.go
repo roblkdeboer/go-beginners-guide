@@ -6,5 +6,9 @@ func main() {
 	// Creating a slice - expanding list with specific types
 	cards := newDeck()
 
-	cards.print()
+	// Gets assigned according to the order the decks are returned
+	hand, remainingDeck := deal(cards, 5)
+
+	hand.print()
+	remainingDeck.print()
 }
