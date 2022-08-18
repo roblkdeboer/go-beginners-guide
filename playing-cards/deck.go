@@ -1,6 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"log"
+	"os"
+	"strings"
+)
 
 // Create new type of 'deck'
 // which is a type of strings
@@ -33,4 +38,27 @@ func (d deck) print() {
 // Return 2 decks
 func deal(d deck, handSize int) (deck, deck) {
 	return d[:handSize], d[handSize:]
+}
+
+// Convert deck to strings
+func (d deck) toString() string {
+	return strings.Join(d, ",")
+}
+
+func (d deck) saveToFile(filename string) error {
+	return os.WriteFile(filename, []byte(d.toString()), 0666)
+}
+
+func newDeckFromFile(filename string) deck {
+	bs, err := os.ReadFile(filename)
+
+	if err != nil {
+		// Option 1 - log the error and return a call to newDeck() - will always return a deck
+		// Option 2 - log the error and quit the program
+		log.Fatal("Error: ", err)
+	}
+
+	s := strings.Split(string(bs), ",")
+
+	return deck(s)
 }
